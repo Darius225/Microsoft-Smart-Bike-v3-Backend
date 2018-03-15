@@ -6,7 +6,6 @@ app = Flask(__name__)
 @app.route("/performance")
 def getParameters():
 	args = request.args
-	print(args)
 	first = float(args['HR'])
 	second = float(args['temp'])
 	third = float(args['rpm'])
