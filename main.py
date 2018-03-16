@@ -46,7 +46,7 @@ def performance ( value ):
 
 @app.route("/listusers")
 def getUsers():
-    return 1 
+    return 1
 
 if __name__ == "__main__":
     app.run()
