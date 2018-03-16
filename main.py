@@ -44,5 +44,22 @@ def performance ( value ):
     else: 
     	return "Need for improvement"
 
+@app.route("/listusers")
+def getUsers():
+     config = {
+             "apiKey": "AIzaSyB9D_CH5n3K6Ip02Go32d3SCXqVdPAs15g",
+             "authDomain": "utilizatori-46bfc.firebaseapp.com",
+             "databaseURL": "https://utilizatori-46bfc.firebaseio.com",
+             "projectId": "utilizatori-46bfc",
+             "storageBucket": "utilizatori-46bfc.appspot.com",
+    }
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    users = db.child("users").get()
+    date=""
+    for user in users.each():
+        date = date + user.val()
+    jsonify(date)
+    
 if __name__ == "__main__":
     app.run()
